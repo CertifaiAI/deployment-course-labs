@@ -37,14 +37,14 @@ If you're using windows to build the docker image, you may encounter the error
 `/usr/bin/env: ‘bash\r’: No such file or directory`
 To solve this, you need to re-clone the repo with additional `--config core.autocrlf=input` argument.
 ```console
-git clone https://github.com/CertifaiAI/deployment-course-labs-solutions.git --config core.autocrlf=input
+git clone https://github.com/CertifaiAI/deployment-course-labs.git --config core.autocrlf=input
 ```
 
-![docker-compose-up-gif](https://github.com/CertifaiAI/deployment-course-labs-solutions/blob/main/day_5/demo_airflow/docker_compose_up.gif)
+![docker-compose-up-gif](https://github.com/CertifaiAI/deployment-course-labs/blob/main/day_5/demo_airflow/docker_compose_up.gif)
 
 Once you see two `AIRFLOW` appear at the terminal. Proceed to the next step.
 
-![two-airflows](https://github.com/CertifaiAI/deployment-course-labs-solutions/blob/main/day_5/demo_airflow/two_airflows.png)
+![two-airflows](https://github.com/CertifaiAI/deployment-course-labs/blob/main/day_5/demo_airflow/two_airflows.png)
 
 ### 2.2  Step 2: Initialize database
 
@@ -63,21 +63,21 @@ If you're prompted to login, kindly key in the following username and password:
 username: `admin`
 password: `admin`
 
-![localhost_airflow](https://github.com/CertifaiAI/deployment-course-labs-solutions/blob/main/day_5/demo_airflow/localhost_airflow.png)
+![localhost_airflow](https://github.com/CertifaiAI/deployment-course-labs/blob/main/day_5/demo_airflow/localhost_airflow.png)
 
 #### 2.3.1 Run an example
 To run one of the example, simply click one of the dags.
-![run_example_step_1](https://github.com/CertifaiAI/deployment-course-labs-solutions/blob/main/day_5/demo_airflow/run_example_step_1.png)
+![run_example_step_1](https://github.com/CertifaiAI/deployment-course-labs/blob/main/day_5/demo_airflow/run_example_step_1.png)
 
 #### 2.3.2 Unpause and trigger the dag
 Click buttons at 2 and 3. In step 3, choose the option 'Trigger DAG'
 
-![run_example_step_2_3](https://github.com/CertifaiAI/deployment-course-labs-solutions/blob/main/day_5/demo_airflow/run_example_step_2_3.png)
+![run_example_step_2_3](https://github.com/CertifaiAI/deployment-course-labs/blob/main/day_5/demo_airflow/run_example_step_2_3.png)
 
 #### 2.3.3 Success
 If the dashboard shows green, it means that the dag run successfully.
 
-![run_example_step_4](https://github.com/CertifaiAI/deployment-course-labs-solutions/blob/main/day_5/demo_airflow/run_example_step_4.png)
+![run_example_step_4](https://github.com/CertifaiAI/deployment-course-labs/blob/main/day_5/demo_airflow/run_example_step_4.png)
 
 ### 2.4 To quit
 
