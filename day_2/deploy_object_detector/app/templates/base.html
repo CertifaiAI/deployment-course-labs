@@ -1,0 +1,51 @@
+<!-- Parent Template -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Object Detector Demo</h1>
+        <p>Hello! This website has a powerful object detector, powered by AI and is able to extract and detect location
+            of objects in the image.</p>
+        <p>Don't believe it? Try it out! You would just need to upload an image using the button below.</p>
+        <p>PS: The <em>"threshold"</em> field is the metric of how strict we want the object detector be. For example,
+            if we
+            set it too low (eg. 0.1), it tends to detect alot of objects and if we set it too high
+            (eg. 0.9), it tends to not detect any objects. You can just leave it as
+            the default value, which is 0.5, unless you want to experiment with the powerful machine!
+        </p>
+    </div>
+    <div class="container">
+        <form action="/result/" enctype="multipart/form-data" method="post">
+            <div class="form-group row">
+                <label for="file" class="col-sm-2 col-form-label">JPEG File: </label>
+                <div class="col-sm-4">
+                    <input type="file" class="form-control" name="file">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="threshold" class="col-sm-2 col-form-label">Threshold: </label>
+                <div class="col-sm-4">
+                    <input type="number" class="col-form-label" name="threshold" value="0.50" step="0.05">
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-primary col-sm-4">Submit</button>
+            </div>
+        </form>
+    </div>
+    {% block body %}
+    {% endblock %}
+</body>
+
+</html>
