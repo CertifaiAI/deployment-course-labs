@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+Object Detector
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div>
+        <h2 style="text-align: left;">Result:</h2>
+    </div>
+    <div>
+        <p>{{ result }}</p>
+    </div>
+    <div>
+        <img src="{{ image }}" alt="Inference image by object Detector">
+    </div>
+</div>
+{% endblock %}
