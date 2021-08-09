@@ -32,6 +32,6 @@ And you are good to go!
 ## Dataset
 You can run the cells in the notebook to download the datasets :) <br>
 Alternatively, you can also manually download it from the following links: <br>
-- https://s3.eu-central-1.wasabisys.com/certifai/deployment-training-labs/fruits_image_classification-20210604T123547Z-001.zip
-- https://s3.eu-central-1.wasabisys.com/certifai/deployment-training-labs/xray_image_classification-20210604T123548Z-001.zip
+- [Fruits Image Classification Dataset](https://s3.eu-central-1.wasabisys.com/certifai/deployment-training-labs/fruits_image_classification-20210604T123547Z-001.zip)
+- [X-Ray Image Classification Dataset](https://s3.eu-central-1.wasabisys.com/certifai/deployment-training-labs/xray_image_classification-20210604T123548Z-001.zip)
 
