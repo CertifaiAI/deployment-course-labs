@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Image Segmentation</string>
+    <string name="take_picture">take picture</string>
+    <string name="choose_image">choose image</string>
+    <string name="portrait">portrait</string>
+    <string name="landscape">landscape</string>
+    <string name="image_view">Image View</string>
+    <string name="result_view">Result View</string>
+</resources>

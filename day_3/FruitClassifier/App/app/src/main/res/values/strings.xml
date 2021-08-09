@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Fruit Classifier</string>
+    <string name="real_time_prediction">real time prediction</string>
+    <string name="take_picture">take picture</string>
+    <string name="choose_image">choose image</string>
+    <string name="portrait">portrait</string>
+    <string name="landscape">landscape</string>
+</resources>
