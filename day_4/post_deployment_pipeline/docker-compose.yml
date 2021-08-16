@@ -1,0 +1,113 @@
+#
+#################################################################################
+#
+#  Copyright (c) 2021 CertifAI Sdn. Bhd.
+#
+#  This program is part of OSRFramework. You can redistribute it and/or modify
+#  it under the terms of the GNU Affero General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Affero General Public License for more details.
+#
+#  You should have received a copy of the GNU Affero General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+#################################################################################
+#
+
+version: "3.9"
+
+services:
+  model_server:
+    container_name: model_server
+    restart: always
+    build: ./model_server
+    ports:
+      - "8000:8000"
+
+  model_server_new:
+    container_name: model_server_new
+    restart: always
+    build: ./model_server_new
+    ports:
+      - "8001:8001"
+
+  drift_detector:
+    container_name: drift_detector_server
+    restart: always
+    build: ./drift_detector_server
+    ports:
+      - "8009:8009"
+
+  drift_detector_new:
+    container_name: drift_detector_server_new
+    restart: always
+    build: ./drift_detector_server_new
+    ports:
+      - "8010:8010"
+
+  mongodb:
+    image: 'mongo:4.4-bionic'
+    container_name: 'mongodb'
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+      - MONGO_INITDB_USERNAME=admin
+      - MONGO_INITDB_PASSWORD=admin
+      - MONGO_INITDB_DATABASE=drift_detection
+    volumes:
+      - './mongodb/mongo_data:/data/db'
+      - './mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js'
+    ports:
+      - '27017:27017'
+  
+  prometheus:
+    container_name: prometheus
+    image: "prom/prometheus:main"
+    restart: always
+    ports: 
+        - "9090:9090"
+    volumes:
+        - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  prometheus_new:
+    container_name: prometheus_new
+    image: "prom/prometheus:main"
+    restart: always
+    ports: 
+        - "9091:9090"
+    volumes:
+        - ./prometheus/prometheus_new.yml:/etc/prometheus/prometheus.yml
+  
+  node_exporter:
+    container_name: node
+    restart: always
+    image: "prom/node-exporter:master"
+  
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:8.0.5
+    restart: always
+    ports: 
+        - "3000:3000"
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+
+  nginx:
+    container_name: nginx_proxy
+    restart: always
+    build: ./nginx
+    ports:
+        - "80:80"
+    depends_on: 
+        - model_server
+        - model_server_new
+
+volumes:
+    mongo_data:
