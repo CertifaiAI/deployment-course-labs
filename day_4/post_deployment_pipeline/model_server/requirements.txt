@@ -12,6 +12,7 @@ python-multipart==0.0.5
 PyYAML==5.4.1
 six==1.16.0
 starlette==0.14.2
+starlette-exporter==0.10.0
 torch==1.8.1
 torchvision==0.9.1
 typing-extensions==3.10.0.0

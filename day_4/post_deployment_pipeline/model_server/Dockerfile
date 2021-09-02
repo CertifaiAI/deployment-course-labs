@@ -29,8 +29,6 @@ RUN pip install -r requirements.txt
 
 COPY ./app ./app
 
-COPY ./starlette_exporter ./starlette_exporter
-
 ENV PYTHONPATH="${PYTHONPATH}:$WORKDIR"
 
 EXPOSE 8000
